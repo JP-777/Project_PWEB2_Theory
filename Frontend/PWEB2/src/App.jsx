@@ -2,7 +2,6 @@ import './App.css';
 import { NavBar } from './components/NavBar.jsx';
 import { LoginForm } from './components/LoginForm';
 import { RegisterForm } from './components/RegisterForm';
-import { AccessBar } from './components/AccessBar.jsx';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
@@ -34,6 +33,7 @@ export function App() {
         }
     }, []);
     
+    
     const handleLoginSuccess = () => {
         setIsAuthenticated(true);
     };
@@ -53,16 +53,7 @@ export function App() {
                     <Routes>
                         <Route path="/" element={isAuthenticated ? (
                                     <>
-                                      <AccessBar/>
-                                      <PostingPanel
-                                        content={[
-                                          { id: 1, userName: "Saul Andre Sivincha Machaca" },
-                                          { id: 2, userName: "Matias Dario Davila Flores" },
-                                          { id: 3, userName: "Jefferson Joao Basurco Cassani" },
-                                        ]}
-                                      />
-                                      <FriendBar />
-                                
+                                        <h1>Hola</h1>
                                     </>
                                 ) : (
                                   <Navigate to="/login" />
