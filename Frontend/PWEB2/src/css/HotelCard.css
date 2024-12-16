@@ -1,0 +1,116 @@
+/* index.css o App.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; 
+}
+
+/* Contenedor General */
+.hotel-carousel-container {
+    width: 90%; 
+    margin: 12%; 
+    position: relative; 
+}
+
+  /* Carrusel de Hoteles */
+.hotel-carousel {
+    display: flex;
+    gap: 25px; 
+    overflow-x: auto; 
+    scroll-behavior: smooth; 
+    padding:  10px; 
+    scrollbar-width: none; 
+}
+
+  /* Botones de Navegación */
+.nav-button {
+    position: absolute; 
+    top: 50%;
+    transform: translateY(-50%); 
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.nav-button:focus {
+    outline: none; 
+}
+
+.nav-button.left {
+    left: 15px; 
+}
+
+.nav-button.right {
+    right: 15px; 
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    
+}
+
+  /* Tarjetas de Hoteles */
+.hotel-card {
+    flex: 0 0 calc(25% - 20px); 
+    max-width: 80%; /* Ancho máximo para tarjetas */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.2s;
+}
+
+.hotel-card:hover {
+    transform: scale(1.05);
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 200px;
+}
+
+/* Información del Hotel */
+.hotel-info {
+    padding: 10px 15px;
+}
+
+.hotel-info h4 {
+    margin: 0 0 10px;
+    font-size: 1.3rem; 
+    font-weight: bold;
+    text-align: center; 
+    color: #000000;
+}
+
+.hotel-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #000000;
+    text-align: left; 
+    line-height: 1.5; 
+}
+
+/* Botón */
+.more-info-btn {
+    width: 100%; 
+    margin: 10px auto 0;
+    padding: 10px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #5BC0BE; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.more-info-btn:hover {
+    background-color: #0B132B; 
+    transform: scale(1.03);
+}
