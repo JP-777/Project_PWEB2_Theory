@@ -13,7 +13,7 @@ export function LoginForm({ onLoginSuccess }) {
         e.preventDefault();
     
         try {
-            const response = await axios.post("http://localhost:8080/api/auth/login", {
+            const response = await axios.post("http://localhost:8000/login/", {
                 email: email,
                 password,
             });
@@ -36,7 +36,7 @@ export function LoginForm({ onLoginSuccess }) {
             console.log("Google Credential:", credential); // Verificar el token de Google
     
             // Envía el token de Google al backend para validarlo y obtener un JWT
-            const res = await axios.post('http://localhost:8080/api/auth/google', { token: credential });
+            const res = await axios.post('http://localhost:8000/google-login/', { token: credential });
     
             // Extrae el JWT del backend
              const { token: token, userId } = res.data;

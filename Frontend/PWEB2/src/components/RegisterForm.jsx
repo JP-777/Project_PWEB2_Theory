@@ -28,7 +28,7 @@ export function RegisterForm() {
         }
     
         try {
-            const response = await axios.post("http://localhost:8000/auth/register", {
+            const response = await axios.post("http://localhost:8000/register/", {
                 email: formData.email,    // Asegúrate de enviar email
                 password: formData.password,
                 full_name: formData.name, // 'full_name' en lugar de 'name'
