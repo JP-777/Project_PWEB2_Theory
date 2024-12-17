@@ -4,7 +4,9 @@ import { LoginForm } from './components/LoginForm';
 import { RegisterForm } from './components/RegisterForm';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-
+import HotelCard from './components/HotelCard'; // Importa el componente HotelCard
+import Precios from './components/Precios'; // Importa el componente HotelCard
+import TrivagoFeatures from './components/TrivagoFeatures'; // Importa el componente HotelCard
 export function App() {
 
     useEffect(() => {
@@ -32,8 +34,7 @@ export function App() {
             }
         }
     }, []);
-    
-    
+
     const handleLoginSuccess = () => {
         setIsAuthenticated(true);
     };
@@ -51,18 +52,40 @@ export function App() {
                 )}
                 <div className="principalBody">
                     <Routes>
-                        <Route path="/" element={isAuthenticated ? (
+                        <Route
+                            path="/"
+                            element={
+                                isAuthenticated ? (
                                     <>
-                                        <h1>Hola</h1>
+                                        <h1>🌎 Explora, Descubre y Ahorra</h1>
+                                        <Precios />
+                                        <TrivagoFeatures />
+                                        <h2>Encuentra Tu Hotel Ideal</h2>
+                                        <HotelCard /> {/* HotelCard agregado aquí */}
                                     </>
                                 ) : (
-                                  <Navigate to="/login" />
+                                    <Navigate to="/login" />
                                 )
                             }
                         />
-                        <Route path="/login" element={isAuthenticated ? (<Navigate to="/" />) : (<LoginForm onLoginSuccess={handleLoginSuccess} />)}/>
-                        <Route path="*" element={<Navigate to={isAuthenticated ? "/" : "/login"} />} />
-                        <Route path="/register" element={<RegisterForm />} />
+                        <Route
+                            path="/login"
+                            element={
+                                isAuthenticated ? (
+                                    <Navigate to="/" />
+                                ) : (
+                                    <LoginForm onLoginSuccess={handleLoginSuccess} />
+                                )
+                            }
+                        />
+                        <Route
+                            path="/register"
+                            element={<RegisterForm />}
+                        />
+                        <Route
+                            path="*"
+                            element={<Navigate to={isAuthenticated ? "/" : "/login"} />}
+                        />
                     </Routes>
                 </div>
             </div>

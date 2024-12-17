@@ -80,12 +80,12 @@ WSGI_APPLICATION = 'Final_Project_Backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hotel_users',
-        'USER': 'root',
-        'PASSWORD': 'JP777guitarherostyles969*',
-        'HOST': 'localhost',  # o la dirección del servidor
-        'PORT': '3300',       # Puerto por defecto de MySQL
+        'ENGINE': 'django.db.backends.mysql',  # El motor MySQL también funciona con MariaDB
+        'NAME': 'hotel_users',                # Nombre de tu base de datos
+        'USER': 'root',                       # Usuario s
+        'PASSWORD': 'password',               # contra
+        'HOST': '127.0.0.1',                  # Dirección del servidor
+        'PORT': '3306',                       # Puerto predeterminado de MariaDB
     }
 }
 
