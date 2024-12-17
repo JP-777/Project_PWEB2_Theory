@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AutenticacionUsuarios',
+    'corsheaders',
+    'rest_framework',
+    "rest_framework.authtoken",
 ]
 
 MIDDLEWARE = [
@@ -48,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'Final_Project_Backend.urls'
@@ -76,14 +80,27 @@ WSGI_APPLICATION = 'Final_Project_Backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hotel_users',
+        'USER': 'root',
+        'PASSWORD': 'JP777guitarherostyles969*',
+        'HOST': 'localhost',  # o la dirección del servidor
+        'PORT': '3300',       # Puerto por defecto de MySQL
     }
 }
+
+class Settings:
+    DATABASE_URL = "sqlite:///db.sqlite3"
+    SECRET_KEY = "nuncadejaredeamarteclaudianiaunquepasen1000añosQWERTYUIOPASDFGHJKLÑZXCVBNM"
+
+settings = Settings()
+
 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+
+AUTH_USER_MODEL = "AutenticacionUsuarios.User"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -122,3 +139,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Asegúrate de incluir tu frontend aquí
+]
