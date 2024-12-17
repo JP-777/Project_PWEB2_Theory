@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "../css/HotelCard.css";
+import "../styles/HotelCard.css";
 
 const hotels = [
     { 
