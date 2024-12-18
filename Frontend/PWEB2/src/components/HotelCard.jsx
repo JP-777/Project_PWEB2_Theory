@@ -37,7 +37,6 @@ export function HotelCard ( { image, name, rating, location} ) {
             {isOpen && (
                 <div className="modal-overlay" onClick={closeModal}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        {/* HotelCard en detalle */}
                         <div className="hotel-detail">
                             <div className="modal-hotel-card">
                                 <img src={image} alt={name} />
@@ -56,7 +55,6 @@ export function HotelCard ( { image, name, rating, location} ) {
                             </div>
                         </div>
 
-                        {/* CardInfo se mostrará al costado */}
                         <div className="card-info">
                             <CardInfo 
                                 title={name} 

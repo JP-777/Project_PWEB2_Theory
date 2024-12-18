@@ -42,12 +42,12 @@ const hotels = [
 
 export function CardsBar () {
     const carouselRef = useRef(null);
-    const cardWidth = 300; // Ancho aproximado de cada tarjeta (ajusta si necesario)
+    const cardWidth = 300;
 
     const scrollLeft = () => {
         if (carouselRef.current) {
             carouselRef.current.scrollBy({
-                left: -cardWidth * 3, // Desplaza 3 tarjetas hacia la izquierda
+                left: -cardWidth * 3,
                 behavior: "smooth"
             });
         }
@@ -56,7 +56,7 @@ export function CardsBar () {
     const scrollRight = () => {
         if (carouselRef.current) {
             carouselRef.current.scrollBy({
-                left: cardWidth * 3, // Desplaza 3 tarjetas hacia la derecha
+                left: cardWidth * 3, 
                 behavior: "smooth"
             });
         }

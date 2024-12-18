@@ -6,7 +6,7 @@ class HotelSerializer(serializers.ModelSerializer):
         model = Hotel
         fields = ['id', 'name', 'description', 'location', 'price_per_night',
                   'available_rooms', 'amenities', 'image', 'date_created']
-        read_only_fields = ['id', 'owner', 'date_created']  # Estos campos son asignados automáticamente
+        read_only_fields = ['id', 'owner', 'date_created']
 
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:

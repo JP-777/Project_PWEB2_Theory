@@ -16,7 +16,7 @@ class Hotel(models.Model):
         return self.name
 
 class Booking(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="bookings")  # Relación con User
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="bookings")
     hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name="bookings")
     check_in = models.DateField()
     check_out = models.DateField()

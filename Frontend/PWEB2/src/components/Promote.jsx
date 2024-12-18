@@ -27,7 +27,6 @@ export function Promote () {
     <div className="ventas-container">
       <h1>Registro de Hoteles</h1>
 
-      {/* Formulario */}
       <form onSubmit={handleSubmit} className="ventas-form">
         <input
           type="text"
@@ -53,7 +52,6 @@ export function Promote () {
         <button type="submit" className="btn-submit">Agregar Hotel</button>
       </form>
 
-      {/* Lista de hoteles */}
       <div className="hoteles-list">
         {hoteles.map((hotel, index) => (
           <div key={index} className="hotel-card">
@@ -61,7 +59,6 @@ export function Promote () {
             <p>Costo: ${hotel.costo}</p>
             <p>Habitaciones: {hotel.habitaciones}</p>
 
-            {/* Swiper de ejemplo */}
             <Swiper
               modules={[Navigation, Pagination]}
               spaceBetween={10}

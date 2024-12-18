@@ -29,9 +29,9 @@ export function RegisterForm() {
     
         try {
             const response = await axios.post("http://localhost:8000/register/", {
-                email: formData.email,    // Asegúrate de enviar email
+                email: formData.email,    
                 password: formData.password,
-                full_name: formData.name, // 'full_name' en lugar de 'name'
+                full_name: formData.name, 
             });
 
             alert('Usuario registrado con éxito. ' + response.data);

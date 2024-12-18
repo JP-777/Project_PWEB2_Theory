@@ -9,7 +9,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["email", "password", "full_name"]
 
     def create(self, validated_data):
-        # Usar el manager del modelo para crear el usuario correctamente
         user = User.objects.create_user(
             email=validated_data["email"],
             password=validated_data["password"],
