@@ -3,9 +3,9 @@ import { BannerSlider } from "./BannerSlider";
 
 export function MapPage() {
     const discountBanners = [
-        { image: "https://via.placeholder.com/1200x400?text=Descuento+20%", title: "¡20% de descuento en hoteles de playa!" },
-        { image: "https://via.placeholder.com/1200x400?text=Descuento+30%", title: "¡30% de descuento en Cuzco!" },
-        { image: "https://via.placeholder.com/1200x400?text=Descuento+50%", title: "¡50% de descuento en Paracas por tiempo limitado!" },
+        { image: "https://st2.depositphotos.com/10440072/43941/i/450/depositphotos_439412992-stock-photo-beautiful-tropical-beach-banner-white.jpg", title: "¡20% de descuento en hoteles de playa!" },
+        { image: "https://www.perurail.com/wp-content/uploads/2022/06/banner-machu-picchu-1024x576.jpg", title: "¡30% de descuento en Cuzco!" },
+        { image: "https://westgatecdn.com/2023/02/special-banner-choose-destination-wiliamsburg.jpg", title: "¡50% de descuento en Paracas por tiempo limitado!" },
     ];
 
     return (
