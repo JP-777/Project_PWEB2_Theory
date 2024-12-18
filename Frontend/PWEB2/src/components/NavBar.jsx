@@ -1,44 +1,44 @@
-import '../styles/NavBar.css'
-import logo from './icons/logo.svg'
-import search from './icons/search.svg'
-import bell from './icons/bell.svg'
-import messages from './icons/messages.svg'
-import friends from './icons/friends.svg'
+/* eslint-disable react/prop-types */
+import '../styles/NavBar.css';
+import logo from './icons/logo.svg';
+import search from './icons/search.svg';
 
-// eslint-disable-next-line react/prop-types
-export function NavBar( {selfProfilePhoto, selfProfileName}) {
-  return (
-    <div className="navBar">
-      
-      <img className="logo" alt="Logo" src={logo}/>
-      
-      <div className="searchContainer">
-        <input autoComplete="off" className="searchInput" type="text" placeholder="Search..."/>
-        <img className="searchIcon" src={search} alt="Search"/>
-      </div>
+export function NavBar({ isAuthenticated, selfProfilePhoto, selfProfileName, onLogout }) {
+    return (
+        <div className="navBar">
+            <img className="logo" alt="Logo" src={logo} />
 
-      <div className='navButtons'>
-        <strong>
-          <ul>
-            <li>Home</li>
-            <li>Search Friends</li>
-            <li>Create</li>
-          </ul>
-        </strong>
-      </div>
+            <div className="searchContainer">
+                <input
+                    autoComplete="off"
+                    className="searchInput"
+                    type="text"
+                    placeholder="Buscar hoteles, lugares..."
+                />
+                <img className="searchIcon" src={search} alt="Search" />
+            </div>
 
-      <div className='navIcons'>
-        <img src={friends}/>
-        <img src={messages}/>
-        <img src={bell}/>
-      </div>
+            <div className="navButtons">
+                <ul>
+                    <li><a href="/map">Mapa</a></li>
+                    <li><a href="/promote">Publica tu Propiedad</a></li>
+                </ul>
+            </div>
 
-      <div className='selfProfile'>
-        <img className='selfProfilePhoto' alt='Profile Photo' src={selfProfilePhoto}/>
-        <strong>
-          {selfProfileName} ▼
-        </strong>
-      </div>
-    </div>
-  );
+            <div className="authControls">
+                {isAuthenticated ? (
+                    <div className="selfProfile">
+                        <img className="selfProfilePhoto" alt="Profile Photo" src={selfProfilePhoto} />
+                        <strong>{selfProfileName}</strong>
+                        <button className="logoutButton" onClick={onLogout}>Cerrar Sesión</button>
+                    </div>
+                ) : (
+                    <>
+                        <a href="/register" className="authButton">Crear cuenta</a>
+                        <a href="/login" className="authButton">Iniciar sesión</a>
+                    </>
+                )}
+            </div>
+        </div>
+    );
 }

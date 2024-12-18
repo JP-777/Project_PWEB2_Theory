@@ -1,0 +1,80 @@
+/* Contenedor General */
+.hotel-carousel-container {
+    width: 95%; 
+    min-height: 500px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+/* Carrusel de Hoteles */
+.hotel-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior:unset;
+    padding: 10px;
+    scrollbar-width: none;
+}
+
+.hotel-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tarjetas de Hoteles */
+
+
+/* Botón */
+.more-info-btn {
+    width: 90%;
+    margin: 15px auto 10px;
+    padding: 12px 0;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #5BC0BE;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.more-info-btn:hover {
+    background-color: #0B132B;
+    transform: scale(1.05);
+}
+
+/* Botones de Navegación */
+.nav-button {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Negro con opacidad */
+    color: #fff; /* Icono blanco */
+    border: none; /* Sin borde */
+    border-radius: 100%;
+    width: 50px;
+    height:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.4rem; /* Icono visible */
+    z-index: 10;
+}
+.nav-button:focus {
+    outline: none; 
+}
+.nav-button.left {
+    left: 15px; 
+}
+
+.nav-button.right {
+    right: 15px; 
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo ligeramente más oscuro */
+}
+.nav-button:active {
+    transform: translateY(-50%) scale(0.95); /* Efecto al hacer clic */
+}

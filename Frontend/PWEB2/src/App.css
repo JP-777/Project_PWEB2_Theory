@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -18,15 +19,6 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
@@ -39,4 +31,33 @@
 
 .read-the-docs {
   color: #888;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; 
+}
+
+h1 {
+  font-size: 3rem; /* Más grande */
+  font-weight: bold; /* Más peso */
+  text-align: center; /* Centrado */
+  color: #000000; /* Color principal oscuro */
+  margin: 2rem 0; /* Espacio */
+  text-transform: uppercase; /* Todo mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+}
+
+/* Estilos para H2 */
+h2 {
+  font-size: 2.2rem; /* Tamaño intermedio */
+  font-weight: 600; /* Seminegrita */
+  text-align: center; /* Centrado */
+  color: #000000; /* Color gris oscuro */
+  margin: 1.5rem 0; /* Espacio */
+  letter-spacing: 1px; /* Espaciado ligero */
+  border-bottom: 2px solid #000000; /* Línea decorativa */
+  display: inline-block;
+  padding-bottom: 0.5rem; /* Espacio entre texto y línea */
 }

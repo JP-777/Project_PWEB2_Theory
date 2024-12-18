@@ -1,0 +1,133 @@
+.hotel-card {
+    flex: 0 0 500px; /* Ancho exacto de cada tarjeta */
+    max-width: calc(33.33% - 20px);
+    height: 420px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribución uniforme */
+    margin-right: 10px; /* Espaciado entre tarjetas */
+}
+
+.hotel-card:hover {
+    transform: scale(1.03);
+}
+
+.hotel-card img {
+    width: 100%;
+    height: 200px; /* Altura mayor para la imagen */
+    object-fit: cover; /* Imagen completa sin distorsión */
+}
+
+/* Información del Hotel */
+.hotel-info {
+    padding: 20px 15px;
+    flex-grow: 1; /* Hace que el contenido crezca hasta ocupar el espacio disponible */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotel-info h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.hotel-info p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Overlay que oscurece la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurecimiento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-hotel-card {
+    flex: 0 0 500px; /* Ancho exacto de cada tarjeta */
+    height: 420px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribución uniforme */
+    margin-right: 10px; /* Espaciado entre tarjetas */
+}
+
+.modal-hotel-card:hover {
+    transform: scale(1.03);
+}
+
+.modal-hotel-card img {
+    width: 100%;
+    height: 200px; /* Altura mayor para la imagen */
+    object-fit: cover; /* Imagen completa sin distorsión */
+}
+
+
+/* Contenedor del modal */
+.modal-content {
+    background-color: #fff;
+    width: 1000px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row; /* Coloca los elementos uno al lado del otro */
+    align-items: flex-start; /* Alinea el contenido en la parte superior */
+    justify-content: center; /* Centra horizontalmente */
+    padding: 20px;
+    position: relative;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para la sección del detalle del hotel */
+.hotel-detail {
+    flex: 0 0 30%; /* Ocupa el 50% del espacio disponible */
+    text-align: left;
+}
+
+/* Estilo para CardInfo */
+.card-info {
+    flex: 0 0 70%; /* Ocupa el otro 50% */
+}
+
+/* Botón de cerrar */
+.close-button {
+    color: red;
+    position: absolute;
+    height: 50px;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.close-button:hover {
+    color: white;
+    background-color: red;
+    border: 2px solid white;
+}
