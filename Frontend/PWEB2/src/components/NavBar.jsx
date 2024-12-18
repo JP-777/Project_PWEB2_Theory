@@ -1,21 +1,23 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/NavBar.css';
 import search from './icons/search.svg';
 import { Link } from 'react-router-dom';
+import { SearchContext } from '../context/SearchContext';
 
 export function NavBar({ isAuthenticated, selfProfilePhoto, selfProfileName, onLogout }) {
-
+    const { setIsSearching } = useContext(SearchContext);
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
 
     const handleSearch = (e) => {
-        e.preventDefault();
-        if (searchTerm.trim()) {
-            navigate(`/search?q=${searchTerm}`);
-        }
-    };
+      e.preventDefault();
+      if (searchTerm.trim()) {
+          setIsSearching(true); // Activa el estado de búsqueda
+          navigate(`/search?q=${searchTerm}`);
+      }
+  };
 
     return (
         <div className="navBar">

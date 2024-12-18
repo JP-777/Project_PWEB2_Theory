@@ -39,7 +39,7 @@ export function SearchResults() {
                 <div className="results-grid">
                     {hotels.map(hotel => (
                         <HotelCard
-                            className={"hotel-card"}
+                            className={"hotel-card-search"}
                             key={hotel.id}
                             name={hotel.name}
                             image={hotel.image}

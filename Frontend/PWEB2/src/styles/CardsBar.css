@@ -3,16 +3,17 @@
     min-height: 500px;
     margin: 2rem auto;
     position: relative;
-    border: black solid 5px;
+    background-color: #f8f9fa; 
 }
 
 .hotel-carousel {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     overflow-x: auto;
     scroll-behavior:unset;
     padding: 10px;
     scrollbar-width: none;
+    background-color: #fff;
 }
 
 .hotel-carousel::-webkit-scrollbar {
@@ -72,4 +73,3 @@
 .nav-button:active {
     transform: translateY(-50%) scale(0.95);
 }
-

@@ -11,6 +11,8 @@ import { Features } from './components/Features';
 import { Promote } from './components/Promote.jsx';
 import { UserProfile } from './components/UserProfile.jsx';
 import { SearchResults } from './components/SearchResults.jsx';
+import { SearchProvider } from "./context/SearchContext.jsx";
+import { CityPage } from "./components/CityPage";
 
 export function App() {
 
@@ -100,6 +102,7 @@ export function App() {
 
     return (
         <Router>
+            <SearchProvider>
             <div className="App">
                 <nav>
                     <NavBar
@@ -114,10 +117,10 @@ export function App() {
                     <Routes>
                         <Route path="/" element={
                             <>
-                                <h1>🌎 Explora, Descubre y Ahorra</h1>
+                                <h1 className="title">Explora, Descubre y Ahorra</h1>
                                 <Prices />
                                 <Features />
-                                <h2>Encuentra Tu Hotel Ideal</h2>
+                                <h2 className="subtitle">Encuentra Tu Hotel Ideal</h2>
                                 <CardsBar />
                             </>
                         } />
@@ -126,10 +129,12 @@ export function App() {
                         <Route path="/login" element={ isAuthenticated ? <Navigate to="/" /> : <LoginForm onLoginSuccess={handleLoginSuccess} />} />
                         <Route path="/search" element={<SearchResults />} />
                         <Route path="/register" element={<RegisterForm />} />
+                        <Route path="/:city" element={<CityPage />} />
                         <Route path="*" element={<h1>Página no encontrada</h1>} />
                     </Routes>
                 </div>
             </div>
+            </SearchProvider>
         </Router>
     );
 };

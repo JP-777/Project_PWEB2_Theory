@@ -12,18 +12,6 @@
   will-change: filter;
   transition: filter 300ms;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
 .card {
   padding: 2em;
@@ -51,6 +39,29 @@ h1 {
 
 /* Estilos para H2 */
 h2 {
+  font-size: 2.2rem; /* Tamaño intermedio */
+  font-weight: 600; /* Seminegrita */
+  text-align: center; /* Centrado */
+  color: #000000; /* Color gris oscuro */
+  margin: 1.5rem 0; /* Espacio */
+  letter-spacing: 1px; /* Espaciado ligero */
+  border-bottom: 2px solid #000000; /* Línea decorativa */
+  display: inline-block;
+  padding-bottom: 0.5rem; /* Espacio entre texto y línea */
+}
+
+.title  {
+  font-size: 3rem; /* Tamaño grande pero elegante */
+  font-weight: 700;
+  margin-top: 70px;
+  text-transform: uppercase;
+  color: #333333; /* Color oscuro neutral */
+  text-align: center;
+  letter-spacing: 2px; /* Espaciado entre letras */
+  position: relative;
+  display: inline-block;
+}
+.subtitle {
   font-size: 2.2rem; /* Tamaño intermedio */
   font-weight: 600; /* Seminegrita */
   text-align: center; /* Centrado */

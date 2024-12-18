@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
 import '../styles/HotelCard.css'
-import { useState } from 'react';
+import { useState, useContext} from 'react';
 import { CardInfo } from './CardInfo';
 import { BookingForm } from './BookingForm';
+import { SearchContext } from '../context/SearchContext';
+
 
 export function HotelCard ( { id, image, name, rating, location, pricePerNight} ) {
+
+    const { isSearching } = useContext(SearchContext);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +28,7 @@ export function HotelCard ( { id, image, name, rating, location, pricePerNight} 
 
     return(
         <>
-            <div className="hotel-card" onClick={handleCardClick}>
+            <div className={isSearching ? "hotel-card-search" : "hotel-card"} onClick={handleCardClick}>
                 <img src={image} alt={name} />
                 <div className="hotel-info">
                     <h4 className="hotel-title">{name}</h4>
