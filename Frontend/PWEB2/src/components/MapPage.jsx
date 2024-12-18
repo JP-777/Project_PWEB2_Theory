@@ -3,9 +3,9 @@ import { BannerSlider } from "./BannerSlider";
 
 export function MapPage() {
     const discountBanners = [
-        { image: "https://via.placeholder.com/1200x400?text=Descuento+20%", title: "¡20% de descuento en hoteles de playa!" },
-        { image: "https://via.placeholder.com/1200x400?text=Descuento+30%", title: "¡30% de descuento en Cuzco!" },
-        { image: "https://via.placeholder.com/1200x400?text=Descuento+50%", title: "¡50% de descuento en Paracas por tiempo limitado!" },
+        { image: "https://blog.acsa.sv/hubfs/Viaje%20en%20familia.jpg", title: "¡20% de descuento en hoteles de playa!" },
+        { image: "https://cloudfront-us-east-1.images.arcpublishing.com/infobae/SWPEBWQOEFE45JJJHBXPCTHWWU.jpg", title: "¡30% de descuento en Cuzco!" },
+        { image: "https://royaldreamsviajes.com/wp-content/uploads/2024/08/paquetes-anio-nuevo-buenos-aires.jpg", title: "¡50% de descuento en Paracas por tiempo limitado!" },
     ];
 
     return (
