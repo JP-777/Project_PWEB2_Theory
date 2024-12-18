@@ -11,4 +11,5 @@ class HotelSerializer(serializers.ModelSerializer):
 class BookingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Booking
-        fields = "__all__"
+        fields = ['id', 'user', 'hotel', 'check_in', 'check_out', 'total_price']
+        read_only_fields = ['user', 'total_price']
