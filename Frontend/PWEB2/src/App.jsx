@@ -13,6 +13,7 @@ import { UserProfile } from './components/UserProfile.jsx';
 import { SearchResults } from './components/SearchResults.jsx';
 import { SearchProvider } from "./context/SearchContext.jsx";
 import { CityPage } from "./components/CityPage";
+import { MapPage } from "./components/MapPage";
 
 export function App() {
 
@@ -22,7 +23,7 @@ export function App() {
     });
     const [userPhoto, setUserPhoto] = useState(() => {
         const userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
-        return userInfo.profile_photo || "https://unavatar.io/Saul";
+        return userInfo.profile_photo;
     });
     const [userName, setUserName] = useState(() => {
         const userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
@@ -32,25 +33,28 @@ export function App() {
     useEffect(() => {
         const token = localStorage.getItem('token');
         const rawUserInfo = localStorage.getItem('userInfo');
+        console.log("Token:", token);
+        console.log("Raw User Info:", rawUserInfo);
+    
         let userInfo = {};
-
+    
         if (rawUserInfo) {
             try {
                 userInfo = JSON.parse(rawUserInfo);
+                console.log("Parsed User Info:", userInfo);
             } catch (error) {
                 console.error('Error al parsear userInfo de localStorage:', error);
-                userInfo = {};
             }
         }
-
+    
         if (token) {
             try {
                 const payload = JSON.parse(atob(token.split('.')[1]));
                 const isExpired = payload.exp * 1000 < Date.now();
                 if (!isExpired) {
                     setIsAuthenticated(true);
-                    setUserPhoto(userInfo.profile_photo);
-                    setUserName(userInfo.full_name);
+                    setUserPhoto(userInfo.profile_photo || "https://unavatar.io/default");
+                    setUserName(userInfo.full_name || "Usuario");
                 } else {
                     console.warn('El token ha expirado');
                     localStorage.removeItem('token');
@@ -61,6 +65,7 @@ export function App() {
             }
         }
     }, []);
+    
 
     useEffect(() => {
         const handleRouteChange = () => {
@@ -129,6 +134,7 @@ export function App() {
                         <Route path="/login" element={ isAuthenticated ? <Navigate to="/" /> : <LoginForm onLoginSuccess={handleLoginSuccess} />} />
                         <Route path="/search" element={<SearchResults />} />
                         <Route path="/register" element={<RegisterForm />} />
+                        <Route path="/map" element={<MapPage />} />
                         <Route path="/:city" element={<CityPage />} />
                         <Route path="*" element={<h1>Página no encontrada</h1>} />
                     </Routes>

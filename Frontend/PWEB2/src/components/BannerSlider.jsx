@@ -8,29 +8,34 @@ export function BannerSlider({ banners }) {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
-        }, 3000); // Cambia cada 3 segundos
+        }, 3000);
+
         return () => clearInterval(interval);
-    }, [banners.length]);
+    }, [banners]);
 
     return (
         <div className="banner-slider">
-            {banners.map((banner, index) => (
-                <div
-                    key={index}
-                    className={`banner-slide ${index === currentIndex ? "active" : ""}`}
-                    style={{
-                        backgroundImage: `url(${banner.image})`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        display: index === currentIndex ? "block" : "none",
-                    }}
-                >
-                    <div className="banner-content">
-                        <h1>{banner.title}</h1>
-                        <p>{banner.description}</p>
+            <div
+                className="banner-container"
+                style={{
+                    transform: `translateX(-${currentIndex * 100}%)`,
+                }}
+            >
+                {banners.map((banner, index) => (
+                    <div
+                        className="banner-slide"
+                        key={index}
+                        style={{
+                            backgroundImage: `url(${banner.image})`,
+                        }}
+                    >
+                        <div className="banner-content">
+                            <h1>{banner.title}</h1>
+                            <p>{banner.description}</p>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     );
 }

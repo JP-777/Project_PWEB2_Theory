@@ -34,7 +34,7 @@ const cityBanners = {
             description: "La mejor experiencia costera.",
         },
     ],
-    Cuzco: [
+    cuzco: [
         {
             image: "https://via.placeholder.com/1920x600?text=Cuzco1",
             title: "Explora Cuzco",

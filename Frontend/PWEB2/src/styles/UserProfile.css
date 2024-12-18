@@ -1,6 +1,9 @@
 .user-profile {
     color: black;
     padding: 20px;
+    width: 1000px;
+    border: solid black 10px;
+    background-color: rgba(0, 0, 0, 0.307);
 }
 
 .profile-section {
@@ -19,6 +22,7 @@
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #ddd;
+    margin-left: auto;
 }
 
 .profile-form label {
@@ -28,6 +32,7 @@
 
 .profile-info {
     margin-top: 10px;
+    margin-right: auto;
 }
 
 .reservations-section ul {
