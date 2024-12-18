@@ -148,9 +148,9 @@ const cityBanners = {
         },
 
     ],
-    RíodeJaneiro: [
+    ríodejaneiro: [
         {
-            image: "",
+            image: "https://content.r9cdn.net/rimg/dimg/54/ed/eb0f657a-lm-159298-16d6b936db3.jpg?crop=true&width=1020&height=498",
             title: "Explora Rio de janeiro",
             description: "Río de Janeiro, la Cidade Maravilhosa, es famosa por sus icónicas playas, el Cristo Redentor y su vibrante espíritu cultural lleno de música y samba.",
         },
