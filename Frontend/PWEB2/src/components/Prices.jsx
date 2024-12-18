@@ -56,8 +56,9 @@ export function Prices() {
             style={{
                 backgroundImage: `url(${cityBackgrounds[selectedCity]})`,
                 backgroundSize: "cover",
-                backgroundPosition: "center",
+                backgroundPosition: selectedCity === 'RíodeJaneiro' ? 'center 20%' : 'center',
                 color: "#fff",
+                
             }}
         >
             <div className="ciudades">
