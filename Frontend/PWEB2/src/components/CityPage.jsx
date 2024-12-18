@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { BannerSlider } from "./BannerSlider";
 import { CityCardsBar } from "./CityCardsBar";
 
