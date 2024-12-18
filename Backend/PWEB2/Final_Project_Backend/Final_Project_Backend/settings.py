@@ -83,8 +83,8 @@ DATABASES = {
         'NAME': 'hotel_users',
         'USER': 'root',
         'PASSWORD': 'JP777guitarherostyles969*',
-        'HOST': 'localhost',  # o la dirección del servidor
-        'PORT': '3300',       # Puerto por defecto de MySQL
+        'HOST': 'localhost',
+        'PORT': '3300',
     }
 }
 

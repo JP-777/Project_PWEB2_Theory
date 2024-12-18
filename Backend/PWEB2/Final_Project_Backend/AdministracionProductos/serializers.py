@@ -9,7 +9,9 @@ class HotelSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'owner', 'date_created']
 
 class BookingSerializer(serializers.ModelSerializer):
+    hotel = HotelSerializer(read_only=True)
+
     class Meta:
         model = Booking
-        fields = ['id', 'user', 'hotel', 'check_in', 'check_out', 'total_price']
-        read_only_fields = ['user', 'total_price']
+        fields = ['id', 'user', 'hotel', 'check_in', 'check_out', 'total_price', 'date_booked']
+        read_only_fields = ['user', 'total_price', 'date_booked']

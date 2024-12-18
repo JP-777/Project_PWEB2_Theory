@@ -11,47 +11,43 @@ export function LoginForm({ onLoginSuccess }) {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-    
         try {
             const response = await axios.post("http://localhost:8000/login/", {
                 email: email,
                 password,
             });
     
-            const { access_token } = response.data;
+            const { token, user } = response.data;
     
-            localStorage.setItem("token", access_token);
+            localStorage.setItem("token", token);
+            localStorage.setItem("userInfo", JSON.stringify(user));
     
-            onLoginSuccess(access_token);
+            onLoginSuccess(user); 
         } catch (error) {
-            alert("Credenciales incorrectas o problema con el servidor." + error);
+            console.error("Error:", error.response?.data || error.message);
+            alert("Credenciales incorrectas o problema con el servidor.");
         }
     };
     
-
     const handleSuccess = async (response) => {
         try {
             const { credential } = response;
     
-            console.log("Google Credential:", credential);
-
-            const res = await axios.post('http://localhost:8000/google-login/', { token: credential });
-    
-             const { token: token, userId } = res.data;
+            const res = await axios.post("http://localhost:8000/google-login/", { token: credential });
+            const { token, user } = res.data;
     
             localStorage.setItem("token", token);
-            localStorage.setItem("userId", userId);
+            localStorage.setItem("userInfo", JSON.stringify(user));
     
-            onLoginSuccess(token);
+            onLoginSuccess(user); 
         } catch (error) {
             console.error("Error:", error.response?.data || error.message);
-            alert('Error al iniciar sesión con Google.');
+            alert("Error al iniciar sesión con Google.");
         }
     };
     
-    
     const handleError = () => {
-        console.error('Error al iniciar sesión con Google');
+        console.error('Error al iniciar sesión con Google2');
     };
         
 

@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from .models import User
 from django.contrib.auth.hashers import make_password
+from rest_framework.authtoken.models import Token
 
 @api_view(["POST"])
 def google_login(request):
@@ -20,17 +21,28 @@ def google_login(request):
     data = response.json()
     email = data.get("email")
     full_name = data.get("name")
+    profile_photo = data.get("picture") 
 
     user, created = User.objects.get_or_create(
         email=email,
         defaults={
             "full_name": full_name,
-            "password": make_password(None)
+            "password": make_password(None),
+            "profile_photo": profile_photo 
         }
     )
 
+    if not created and user.profile_photo != profile_photo:
+        user.profile_photo = profile_photo
+        user.save()
+
+    drf_token, _ = Token.objects.get_or_create(user=user)
+
     return Response({
-        "message": "Inicio de sesión exitoso",
-        "email": user.email,
-        "full_name": user.full_name
+        "token": drf_token.key,
+        "user": {
+            "email": user.email,
+            "full_name": user.full_name,
+            "profile_photo": user.profile_photo
+        }
     }, status=status.HTTP_200_OK)

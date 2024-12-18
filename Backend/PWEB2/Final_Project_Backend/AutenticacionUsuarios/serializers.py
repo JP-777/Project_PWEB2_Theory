@@ -15,3 +15,15 @@ class UserSerializer(serializers.ModelSerializer):
             full_name=validated_data.get("full_name")
         )
         return user
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["email", "full_name", "profile_photo"]
+        read_only_fields = ["email"]
+
+    def update(self, instance, validated_data):
+        instance.full_name = validated_data.get("full_name", instance.full_name)
+        instance.profile_photo = validated_data.get("profile_photo", instance.profile_photo)
+        instance.save()
+        return instance

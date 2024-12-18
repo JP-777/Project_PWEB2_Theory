@@ -37,7 +37,6 @@ def create_booking(request, hotel_id):
     check_in = request.data.get("check_in")
     check_out = request.data.get("check_out")
 
-    # Validar fechas
     if not check_in or not check_out:
         return Response({"error": "Las fechas de entrada y salida son obligatorias"}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -47,11 +46,9 @@ def create_booking(request, hotel_id):
     if check_out_date <= check_in_date:
         return Response({"error": "La fecha de salida debe ser posterior a la fecha de entrada"}, status=status.HTTP_400_BAD_REQUEST)
 
-    # Calcular el precio total
     days = (check_out_date - check_in_date).days
     total_price = days * hotel.price_per_night
 
-    # Crear la reserva
     booking = Booking.objects.create(
         user=request.user,
         hotel=hotel,
@@ -62,3 +59,18 @@ def create_booking(request, hotel_id):
 
     serializer = BookingSerializer(booking)
     return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+def search_hotels(request):
+    query = request.query_params.get('q', '')
+    if not query:
+        return Response({"error": "Por favor, proporciona un término de búsqueda."}, status=status.HTTP_400_BAD_REQUEST)
+    
+    hotels = Hotel.objects.filter(
+        models.Q(name__icontains=query) |
+        models.Q(location__icontains=query) |
+        models.Q(description__icontains=query)
+    )
+
+    serializer = HotelSerializer(hotels, many=True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
