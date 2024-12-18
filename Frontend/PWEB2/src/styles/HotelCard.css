@@ -1,6 +1,6 @@
 .hotel-card {
     flex: 0 0 500px;
-    max-width: calc(33.33% - 20px);
+    width: 100px;
     height: 420px; 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

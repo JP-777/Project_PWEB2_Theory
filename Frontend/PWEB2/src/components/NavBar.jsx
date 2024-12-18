@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/NavBar.css';
-import logo from './icons/logo.svg';
 import search from './icons/search.svg';
+import { Link } from 'react-router-dom';
 
 export function NavBar({ isAuthenticated, selfProfilePhoto, selfProfileName, onLogout }) {
 
@@ -19,7 +19,9 @@ export function NavBar({ isAuthenticated, selfProfilePhoto, selfProfileName, onL
 
     return (
         <div className="navBar">
-            <img className="logo" alt="Logo" src={logo} />
+            <Link to="/">
+              <img className="logo" alt="Logo" src="https://www.wagjag.com/coupons/vfiles/95777/merchant_image-merchant_logo_large.png?v=1723048908" />
+            </Link>
 
             <form className="searchContainer" onSubmit={handleSearch}>
                 <input
@@ -31,9 +33,8 @@ export function NavBar({ isAuthenticated, selfProfilePhoto, selfProfileName, onL
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <img className="searchIcon" src={search} alt="Search" />
+                <button type="submit" className="searchButton">🔍</button>
             </form>
-
-            <button type="submit" className="searchButton">🔍</button>
 
             <div className="navButtons">
                 <ul>

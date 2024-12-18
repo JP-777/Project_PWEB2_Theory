@@ -4,11 +4,12 @@ from django.conf import settings
 class Hotel(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
+    rating = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     price_per_night = models.DecimalField(max_digits=10, decimal_places=2)
     available_rooms = models.PositiveIntegerField()
     amenities = models.JSONField(default=dict)
-    image = models.ImageField(upload_to="hotel_images/", null=True, blank=True)
+    image = models.URLField(max_length=500, null=True, blank=True)  
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="hotels")
     date_created = models.DateTimeField(auto_now_add=True)
 

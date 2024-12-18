@@ -4,7 +4,7 @@ from .models import Hotel, Booking
 class HotelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hotel
-        fields = ['id', 'name', 'description', 'location', 'price_per_night',
+        fields = ['id', 'name', 'description', 'rating', 'location', 'price_per_night',
                   'available_rooms', 'amenities', 'image', 'date_created']
         read_only_fields = ['id', 'owner', 'date_created']
 

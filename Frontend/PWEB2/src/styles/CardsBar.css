@@ -3,6 +3,7 @@
     min-height: 500px;
     margin: 2rem auto;
     position: relative;
+    border: black solid 5px;
 }
 
 .hotel-carousel {
@@ -71,3 +72,4 @@
 .nav-button:active {
     transform: translateY(-50%) scale(0.95);
 }
+

@@ -2,6 +2,7 @@ import './App.css';
 import { NavBar } from './components/NavBar.jsx';
 import { LoginForm } from './components/LoginForm';
 import { RegisterForm } from './components/RegisterForm';
+import { Navigate } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { CardsBar } from './components/CardsBar.jsx';
@@ -9,6 +10,7 @@ import { Prices } from './components/Prices';
 import { Features } from './components/Features';
 import { Promote } from './components/Promote.jsx';
 import { UserProfile } from './components/UserProfile.jsx';
+import { SearchResults } from './components/SearchResults.jsx';
 
 export function App() {
 
@@ -121,11 +123,8 @@ export function App() {
                         } />
                         <Route path="/promote" element={isAuthenticated ? <Promote /> : <LoginForm onLoginSuccess={handleLoginSuccess} />} />
                         <Route path="/profile" element={isAuthenticated ? <UserProfile /> : <LoginForm onLoginSuccess={handleLoginSuccess} />} />
-                        <Route path="/login" element={
-                            isAuthenticated ? 
-                            (<h1>Ya has iniciado sesión</h1>) :
-                            (<LoginForm onLoginSuccess={handleLoginSuccess} />)
-                        } />
+                        <Route path="/login" element={ isAuthenticated ? <Navigate to="/" /> : <LoginForm onLoginSuccess={handleLoginSuccess} />} />
+                        <Route path="/search" element={<SearchResults />} />
                         <Route path="/register" element={<RegisterForm />} />
                         <Route path="*" element={<h1>Página no encontrada</h1>} />
                     </Routes>

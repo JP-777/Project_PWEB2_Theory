@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from datetime import datetime
+from django.db.models import Q
 
 class HotelListCreateView(generics.ListCreateAPIView):
     queryset = Hotel.objects.all()
@@ -67,9 +68,9 @@ def search_hotels(request):
         return Response({"error": "Por favor, proporciona un término de búsqueda."}, status=status.HTTP_400_BAD_REQUEST)
     
     hotels = Hotel.objects.filter(
-        models.Q(name__icontains=query) |
-        models.Q(location__icontains=query) |
-        models.Q(description__icontains=query)
+        Q(name__icontains=query) |
+        Q(location__icontains=query) |
+        Q(description__icontains=query)
     )
 
     serializer = HotelSerializer(hotels, many=True)
